@@ -1,0 +1,16 @@
+<div class="p-10 h-full relative">
+  <app-side-menu class="h-full" (isChanged)="isChanged($event)" #side>
+    <ng-container main>
+      <mat-card class="px-12 py-8">
+        <app-header-card></app-header-card>
+
+        <app-list-users></app-list-users>
+      </mat-card>
+    </ng-container>
+    <div side-content>
+      <ng-container *ngIf="isOpen">
+        <app-store-user></app-store-user>
+      </ng-container>
+    </div>
+  </app-side-menu>
+</div>

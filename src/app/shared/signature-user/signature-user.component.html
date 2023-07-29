@@ -1,0 +1,21 @@
+<div style="text-align: center">
+  <div class="wrapper">
+    <canvas #signPadCanvas class="signature-pad" (touchstart)="startSignPadDrawing($event)"
+      (touchmove)="movedFinger($event)"></canvas>
+  </div>
+
+  <button mat-mini-fab color="primary" (click)="saveSignPad()">
+    <mat-icon>save</mat-icon>
+  </button>
+
+  <button mat-mini-fab color="warn" (click)="clearSignPad()">
+    <mat-icon>cleaning_services</mat-icon>
+  </button>
+
+
+  <button mat-mini-fab color="accent" (click)="undoSign()">
+    <mat-icon>undo</mat-icon>
+  </button>
+
+
+</div>

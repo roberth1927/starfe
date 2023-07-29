@@ -1,0 +1,38 @@
+<div class="px-14 py-6 mt-9">
+  <section class="d-flex flex-col text-center mt-5 mb-5">
+    <p class="text-3xl font-bold ">Crea tu Usuario</p>
+    <p class="text-xl text-gray-500">Llene el siguiente formulario para crear tu usuario</p>
+  </section>
+  <mat-stepper linear #stepper>
+
+    <mat-step [editable]="isEditable">
+      <ng-template matStepLabel>Datos</ng-template>
+      <app-form-user #userForm [fetching]="fetching" (formSubmitted)="handleFormSubmit($event)"></app-form-user>
+    </mat-step>
+
+    <mat-step [editable]="isEditable">
+      <ng-template matStepLabel>Firma</ng-template>
+      <app-signature-user #signatureUser (handleSignature)="handleSignature($event)"></app-signature-user>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Completado</ng-template>
+      <section class="flex flex-col justify-center items-center  px-6 py-4 mt-12">
+        <p class="text-xl font-bold mb-4  text-green-600">!Felicidades!</p>
+        <p class="text-lg text-gray-500 ">¡Que la fuerza te acompañe!</p>
+
+        <div class="w-full h-40 mt-24  ">
+          <img src="assets/img/completed.svg" alt="completed" class="w-full h-full">
+        </div>
+        <div class="mt-24">
+          <button mat-flat-button (click)="stepper.reset()" extended color="primary">
+            <mat-icon>add</mat-icon>
+            Crear nuevo usuario
+          </button>
+        </div>
+      </section>
+
+    </mat-step>
+
+  </mat-stepper>
+</div>

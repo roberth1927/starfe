@@ -1,0 +1,45 @@
+<div class="px-6 py-4 mt-6">
+  <form [formGroup]="form">
+    <mat-form-field class="w-full mb-6">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="name"/>
+      <mat-icon color="primary" matSuffix>person</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="w-full mb-6">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email"/>
+      <mat-icon color="primary" matSuffix>mail</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="w-full mb-6">
+      <mat-label>Telefono</mat-label>
+      <input matInput formControlName="phone_number"/>
+      <mat-icon color="primary" matSuffix>call</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="w-full mb-6">
+      <mat-label>Fecha Nacimiento</mat-label>
+      <input
+        color="primary"
+        matInput
+        formControlName="birthdate"
+        required
+        type="date"
+      />
+    </mat-form-field>
+
+    <button
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 w-full mt-8"
+      (click)="onSubmit()"
+      [disabled]="form.invalid"
+    >
+
+      <span *ngIf="fetching != 'pending'">Guardar</span>
+      <span *ngIf="fetching == 'pending'" class="flex items-center justify-center">
+        <mat-icon>save</mat-icon>
+        <span>Guardando...</span>
+      </span>
+    </button>
+  </form>
+</div>
