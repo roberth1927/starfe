@@ -1,6 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
 import { UsersService } from '../../../features/services/users.service';
 import { FormUserComponent } from 'src/app/shared/form-user/form-user.component';
 import { MatStepper } from '@angular/material/stepper';
@@ -23,7 +21,6 @@ export class FormHomeComponent implements OnInit {
 
   fetching: any = 'iddle';
   constructor(
-    private _fb: FormBuilder,
     private userService: UsersService,
   ) {
 
@@ -39,14 +36,12 @@ export class FormHomeComponent implements OnInit {
         this.fetching = 'succeded';
         this.uid = r.data._id
         this.stepper.next()
-
         this.userForm.formInit()
       },
       (err) => {
         this.fetching = 'rejected';
       }
     );
-
   }
 
   handleSignature(file: File) {
@@ -56,8 +51,6 @@ export class FormHomeComponent implements OnInit {
         (response) => {
           this.stepper.next();
           this.signatureUser.clearSignPad();
-
-
         },
         (error) => {
           console.error('Error al enviar la imagen al backend:', error);

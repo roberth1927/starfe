@@ -1,27 +1,40 @@
-# Starfe
+# Starfe - Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.6.
+## Descripción del Proyecto
+Frontend de la aplicación web "Starfe" para gestionar datos de usuarios. Este proyecto utiliza Angular como framework principal y Angular Material para los componentes de diseño. Además, se integra la librería Signature Pad para capturar firmas.
 
-## Development server
+## Requisitos Previos
+- Node.js v16.15.0 (o superior)
+- Angular CLI
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Instalación
+1. Asegúrate de tener instalado Node.js y Angular CLI en tu máquina.
+2. Clona el repositorio del frontend desde GitHub.
+3. Ejecuta `npm install` para instalar las dependencias necesarias.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Comandos NPM
+- `ng`: Comando Angular CLI para ejecutar tareas relacionadas con el proyecto.
+- `start`: Inicia el servidor de desarrollo.
+- `build`: Compila el proyecto para producción.
 
-## Build
+## Dependencias Principales
+- Angular y Angular Core: Framework para construir la interfaz de usuario.
+- Angular Material: Biblioteca de componentes de diseño y UI.
+- RxJS: Librería para programación reactiva.
+- Signature Pad: Librería para capturar firmas.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## DevDependencies
+- Angular Devkit Build Angular: Herramientas para construir proyectos Angular.
+- TypeScript: Lenguaje de programación para Angular.
+- Tailwind CSS: Biblioteca de utilidades CSS para estilos personalizados.
 
-## Running unit tests
+## Ejecución del Proyecto
+- Usa el comando ` npx ng serve` para iniciar el servidor de desarrollo.
+- Accede a la aplicación en tu navegador a través de `http://localhost:4200`.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Notas Adicionales
+- Asegúrate de que el backend "Starbe" esté en ejecución para que el frontend funcione correctamente.
+- En el archivo `.env` del backend, asegúrate de tener configuradas las variables de entorno necesarias.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+¡Gracias por utilizar Starfe! Si tienes alguna pregunta o problema, no dudes en contactar con el equipo de desarrollo.

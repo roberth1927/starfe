@@ -1,28 +1,25 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { SideMenuComponent } from 'src/app/shared/side-menu/side-menu.component';
-
 
 @Component({
   selector: 'app-home-users',
   templateUrl: './home-users.component.html',
-  styleUrls: ['./home-users.component.scss']
+  styleUrls: ['./home-users.component.scss'],
 })
 export class HomeUsersComponent implements OnInit {
+  Users: any = [];
+  @ViewChild('side') side: any;
+  isOpen: boolean = true;
 
-  @ViewChild('side') side: any ;
-  isOpen: boolean = true
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
   isChanged(isOpen: boolean): void {
-   /*  this.store.dispatch(
-      toggleMenuForm({ isOpen })
-    ); */
-    this.isOpen = isOpen
-
-    this.side?.open()
+    this.isOpen = isOpen;
+    this.side?.open();
   }
 
+  filterUsers(e: any) {
+    this.Users = e;
+    console.log("Home-card", this.Users)
+  }
 }

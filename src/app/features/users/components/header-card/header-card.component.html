@@ -9,9 +9,9 @@
   <mat-form-field [style.fontSize.px]="14">
     <input
       autocomplete="off"
-      placeholder="Filtra por una palabra"
+      placeholder="Filtra por nombre"
       matInput
-      #filterValue
+      (keyup)="onFilterValueChange($event)"
     />
     <mat-icon class="icon-size-5" matPrefix>search</mat-icon>
   </mat-form-field>

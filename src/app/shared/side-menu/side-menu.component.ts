@@ -13,9 +13,7 @@ export class SideMenuComponent {
   @Output('isChanged') isChanged = new EventEmitter<boolean>()
   constructor() { }
 
-  ngOnInit(): void {
-    console.log('here', this.isOpen);
-  }
+  ngOnInit(): void { }
 
   open() {
     this.isOpen = true

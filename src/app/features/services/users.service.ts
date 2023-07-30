@@ -27,4 +27,9 @@ export class UsersService {
 
     return this.http.post(`${this.apiUrl}/upload/users/${userId}`, formData);
   }
+
+  searchUsersByName(name:string) {
+
+    return this.http.get<ReqResUser>(`${this.apiUrl}/users`, {params: {name}});
+  }
 }

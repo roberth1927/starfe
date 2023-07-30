@@ -24,9 +24,7 @@ export class SignatureUserComponent {
     this.signPad.width = this.signPad.offsetWidth;
   }
   /*It's work in devices*/
-  startSignPadDrawing(event: Event) {
-    console.log(event);
-  }
+  startSignPadDrawing(event: Event) {  }
   /*It's work in devices*/
   movedFinger(event: Event) {}
   /*Undo last step from the signature*/

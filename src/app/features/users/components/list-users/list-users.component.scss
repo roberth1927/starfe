@@ -23,4 +23,9 @@ tr.example-element-row:not(.example-expanded-row):active {
   display: flex;
 }
 
+.table-container {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
 
