@@ -4,18 +4,27 @@
       <mat-label>Nombre</mat-label>
       <input matInput formControlName="name"/>
       <mat-icon color="primary" matSuffix>person</mat-icon>
+      <mat-error *ngIf="form.get('name')?.invalid && form.get('name')?.touched">
+        Este campo es requerido
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field class="w-full mb-6">
       <mat-label>Email</mat-label>
       <input matInput formControlName="email"/>
       <mat-icon color="primary" matSuffix>mail</mat-icon>
+      <mat-error *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+        Email inválido
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field class="w-full mb-6">
       <mat-label>Telefono</mat-label>
       <input matInput formControlName="phone_number"/>
       <mat-icon color="primary" matSuffix>call</mat-icon>
+      <mat-error *ngIf="form.get('phone_number')?.invalid && form.get('phone_number')?.touched">
+        Este campo es requerido
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field class="w-full mb-6">
@@ -27,16 +36,18 @@
         required
         type="date"
       />
+      <mat-error *ngIf="form.get('birthdate')?.invalid && form.get('birthdate')?.touched">
+        Este campo es requerido
+      </mat-error>
     </mat-form-field>
 
     <button
       class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 w-full mt-8"
       (click)="onSubmit()"
-      [disabled]="form.invalid"
+      [disabled]="form.invalid || fetching === 'pending'"
     >
-
-      <span *ngIf="fetching != 'pending'">Guardar</span>
-      <span *ngIf="fetching == 'pending'" class="flex items-center justify-center">
+      <span *ngIf="fetching !== 'pending'">Guardar</span>
+      <span *ngIf="fetching === 'pending'" class="flex items-center justify-center">
         <mat-icon>save</mat-icon>
         <span>Guardando...</span>
       </span>
