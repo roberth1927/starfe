@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {
   animate,
   state,
@@ -8,7 +8,6 @@ import {
 } from '@angular/animations';
 import { UsersService } from '../../../services/users.service';
 import { User } from '../../../../../core/interfaces/reqResUser.interface';
-import { HeaderCardComponent } from '../header-card/header-card.component';
 
 @Component({
   selector: 'app-list-users',
@@ -27,8 +26,6 @@ import { HeaderCardComponent } from '../header-card/header-card.component';
 })
 export class ListUsersComponent implements OnInit {
 
-@ViewChild('test') test!: HeaderCardComponent
-
   dataSource: User[] = [];
   columnsToDisplay = ['name', 'birthdate', 'email', 'phone_number'];
   columnsName: any = {
@@ -45,13 +42,15 @@ export class ListUsersComponent implements OnInit {
   from = 0;
   @Input() dataUsers: any = '';
 
-  constructor(private userService: UsersService) {}
+  constructor(private userService: UsersService) { }
 
   ngOnInit(): void {
     this.getUsers();
-    console.log("list.user", this.dataUsers )
 
-
+    this.userService.Users.subscribe(data => {
+      this.dataSource = data.data;
+      this.length = data.total;
+    });
   }
 
   getUsers() {
@@ -66,15 +65,6 @@ export class ListUsersComponent implements OnInit {
   handlePageEvent(e: any) {
     this.from = this.pageSize * e.pageIndex;
     this.getUsers();
-  }
-  onFilterValueChanged(value: any) {
-    setTimeout(()=>{
-      this.userService.searchUsersByName(value).subscribe((response) => {
-        this.dataSource = response.data.data;
-        this.length = response.data.total;
-      });
-
-    }, 2000)
   }
 
 }

@@ -10,19 +10,17 @@ export class HeaderCardComponent implements OnInit {
   @Output() filterValueChanged = new EventEmitter<any>();
   dataUser: any = [];
 
-  constructor(private usersService: UsersService) {}
+  constructor(private usersService: UsersService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onFilterValueChange(event: any) {
     const name = event?.target?.value ?? '';
-    this.usersService.searchUsersByName(name).subscribe((response) => {
-      this.dataUser = response.data;
-      this.filterValue();
-    });
+    this.usersService.searchUsersByName(name);
+
   }
 
-  filterValue(){
+  filterValue() {
     this.filterValueChanged.emit(this.dataUser)
   }
 }
